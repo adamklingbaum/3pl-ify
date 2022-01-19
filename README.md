@@ -2,14 +2,15 @@
 
 Inventory tracking web application written in JavaScript.
 
-// Picture
-
 <details>
   <summary><strong>Table of Contents</strong></summary>
   <ol>
     <li>
       <a href="#about-the-project">About the Project</a>
       <ul>
+        <li>
+          <a href="#server-architecture">Server Architecture</a>
+        </li>
         <li>
           <a href="#features">Features</a></li>
           <ul>
@@ -49,6 +50,10 @@ Inventory tracking web application written in JavaScript.
 3PL-ify is an inventory tracking web application built for a logistics company. The server application supports CRUD operations on inventory and warehouses, as well as the movement of inventory between warehouses.
 
 This project also includes a basic client application to demo the functionality of the server application.
+
+### Server Architecture
+
+![server-architecture](assets/architecture.png)
 
 ### Features
 
