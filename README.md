@@ -1,4 +1,4 @@
-# 3PL-ify
+# 3pl-ify
 
 Inventory tracking web application written in JavaScript.
 
@@ -70,7 +70,7 @@ This project also includes a basic client application to demo the functionality 
 
 #### Stock Levels
 
-Stock Levels allow you to allocate items of inventory to specific warehouses. A StockLevel represent a number of units a specific item in a specific warehouse.
+Stock Levels allow you to allocate items of inventory to specific warehouses. A StockLevel represent a number of units of a specific item in a specific warehouse.
 
 1. Create a StockLevel
 2. Create an adjustment to the inventory level for an existing StockLevel
@@ -89,7 +89,7 @@ This application is written entirely in JavaScript.
 #### Client
 
 - [React](https://reactjs.org/) as the library for the intreactive user interface
-- [Create React App](https://create-react-app.dev/) to streamline the configuration and bundling of the React application
+- [Create React App](https://create-react-app.dev/) to streamline the configuration, transpilation and building of the React application
 - [React Bootstrap](https://react-bootstrap.github.io/) for pre-built, Bootstrap-styled React components
 
 ---
