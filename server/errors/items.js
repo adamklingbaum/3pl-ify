@@ -48,11 +48,15 @@ module.exports.updateItemById = async (itemId, name, minStock, vendorName) => {
     return fieldValidationError;
   }
 
-  const item = await Item.findByPk(itemId);
-  if (!item) {
-    return ApiError.notFound('item not found');
+  try {
+    const item = await Item.findByPk(itemId);
+    if (!item) {
+      return ApiError.notFound('item not found');
+    }
+    return null;
+  } catch (error) {
+    return ApiError.internal();
   }
-  return null;
 };
 
 module.exports.getAllItems = () => null;
@@ -60,9 +64,13 @@ module.exports.getAllItems = () => null;
 module.exports.getItemById = () => null;
 
 module.exports.deleteItemById = async (itemId) => {
-  const item = await Item.findByPk(itemId);
-  if (!item) {
-    return ApiError.notFound('item not found');
+  try {
+    const item = await Item.findByPk(itemId);
+    if (!item) {
+      return ApiError.notFound('item not found');
+    }
+    return null;
+  } catch (error) {
+    return ApiError.internal();
   }
-  return null;
 };
