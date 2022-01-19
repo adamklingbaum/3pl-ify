@@ -35,9 +35,34 @@ module.exports.createStockLevel = async (itemId, warehouseId, units) => {
   }
 };
 
-module.exports.getStockLevels = async (itemId) => null;
+module.exports.getStockLevels = async (itemId) => {
+  if (itemId === undefined) {
+    return ApiError.badRequest('itemId is required');
+  }
+  return null;
+};
 
-module.exports.deleteStockLevel = async (itemId, warehouseId) => null;
+module.exports.deleteStockLevel = async (itemId, warehouseId) => {
+  if (itemId === undefined) {
+    return ApiError.badRequest('itemId is required');
+  }
+
+  if (warehouseId === undefined) {
+    return ApiError.badRequest('warehouseId is required');
+  }
+
+  try {
+    const stockLevel = await StockLevel.findOne({
+      where: { itemId, warehouseId },
+    });
+    if (!stockLevel) {
+      return ApiError.notFound('stockLevel not found');
+    }
+    return null;
+  } catch (error) {
+    return ApiError.internal();
+  }
+};
 
 module.exports.adjustStockLevel = async (itemId, warehouseId, adjustment) => {
   if (adjustment === undefined) {
@@ -58,7 +83,7 @@ module.exports.adjustStockLevel = async (itemId, warehouseId, adjustment) => {
 
     if (stockLevel.units + adjustment < 0) {
       return ApiError.badRequest(
-        'stockLevel after adjustment must be at least 0'
+        'stockLevel after adjustment must be at least 0',
       );
     }
 

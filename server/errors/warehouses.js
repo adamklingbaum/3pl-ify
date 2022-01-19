@@ -36,7 +36,7 @@ const validateWarehouseFields = (
   addressLine2,
   city,
   province,
-  postalCode
+  postalCode,
 ) => {
   const nameError = validateStringField('name', name);
   if (nameError) {
@@ -79,7 +79,7 @@ module.exports.createWarehouse = (
   addressLine2,
   city,
   province,
-  postalCode
+  postalCode,
 ) => {
   const fieldValidationError = validateWarehouseFields(
     name,
@@ -87,7 +87,7 @@ module.exports.createWarehouse = (
     addressLine2,
     city,
     province,
-    postalCode
+    postalCode,
   );
   return fieldValidationError;
 };
@@ -103,7 +103,7 @@ module.exports.updateWarehouseById = async (
   addressLine2,
   city,
   province,
-  postalCode
+  postalCode,
 ) => {
   const fieldValidationError = validateWarehouseFields(
     warehouseId,
@@ -112,7 +112,7 @@ module.exports.updateWarehouseById = async (
     addressLine2,
     city,
     province,
-    postalCode
+    postalCode,
   );
   if (fieldValidationError) {
     return fieldValidationError;
