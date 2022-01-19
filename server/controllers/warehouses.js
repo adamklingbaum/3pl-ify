@@ -78,7 +78,7 @@ module.exports.getAllWarehouses = async (req, res, next) => {
   }
 };
 
-module.getWarehouseById = async (req, res, next) => {
+module.exports.getWarehouseById = async (req, res, next) => {
   try {
     const error = await getError(req, GET_WAREHOUSE);
     if (error) {
