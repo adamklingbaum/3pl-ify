@@ -12,6 +12,8 @@ const validateStringField = (fieldName, value) => {
   if (fieldName.length === 0) {
     return ApiError.badRequest(`${fieldName} must not be empty`);
   }
+
+  return null;
 };
 
 module.exports = validateStringField;
