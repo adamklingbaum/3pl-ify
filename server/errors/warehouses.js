@@ -117,25 +117,19 @@ module.exports.updateWarehouseById = async (
   if (fieldValidationError) {
     return fieldValidationError;
   }
-  try {
-    const warehouse = await Warehouse.findByPk(warehouseId);
-    if (!warehouse) {
-      return ApiError.notFound('warehouse not found');
-    }
-  } catch (error) {
-    return ApiError.internal();
+
+  const warehouse = await Warehouse.findByPk(warehouseId);
+  if (!warehouse) {
+    return ApiError.notFound('warehouse not found');
   }
+
   return null;
 };
 
 module.exports.deleteWarehouseById = async (warehouseId) => {
-  try {
-    const warehouse = await Warehouse.findByPk(warehouseId);
-    if (!warehouse) {
-      return ApiError.notFound('warehouse not found');
-    }
-    return null;
-  } catch (error) {
-    return ApiError.internal();
+  const warehouse = await Warehouse.findByPk(warehouseId);
+  if (!warehouse) {
+    return ApiError.notFound('warehouse not found');
   }
+  return null;
 };

@@ -18,21 +18,18 @@ module.exports.createStockLevel = async (itemId, warehouseId, units) => {
   if (unitsError) {
     return unitsError;
   }
-  try {
-    const item = await Item.findByPk(itemId);
-    if (!item) {
-      return ApiError.notFound('item not found');
-    }
 
-    const warehouse = await Warehouse.findByPk(warehouseId);
-    if (!warehouse) {
-      return ApiError.notFound('warehouse not found');
-    }
-
-    return null;
-  } catch (error) {
-    return ApiError.internal();
+  const item = await Item.findByPk(itemId);
+  if (!item) {
+    return ApiError.notFound('item not found');
   }
+
+  const warehouse = await Warehouse.findByPk(warehouseId);
+  if (!warehouse) {
+    return ApiError.notFound('warehouse not found');
+  }
+
+  return null;
 };
 
 module.exports.getStockLevels = async (itemId) => {
@@ -51,17 +48,13 @@ module.exports.deleteStockLevel = async (itemId, warehouseId) => {
     return ApiError.badRequest('warehouseId is required');
   }
 
-  try {
-    const stockLevel = await StockLevel.findOne({
-      where: { itemId, warehouseId },
-    });
-    if (!stockLevel) {
-      return ApiError.notFound('stockLevel not found');
-    }
-    return null;
-  } catch (error) {
-    return ApiError.internal();
+  const stockLevel = await StockLevel.findOne({
+    where: { itemId, warehouseId },
+  });
+  if (!stockLevel) {
+    return ApiError.notFound('stockLevel not found');
   }
+  return null;
 };
 
 module.exports.adjustStockLevel = async (itemId, warehouseId, adjustment) => {
@@ -73,24 +66,20 @@ module.exports.adjustStockLevel = async (itemId, warehouseId, adjustment) => {
     return ApiError.badRequest('adjustment must be a number');
   }
 
-  try {
-    const stockLevel = await StockLevel.findOne({
-      where: { itemId, warehouseId },
-    });
-    if (!stockLevel) {
-      return ApiError.notFound('stockLevel not found');
-    }
-
-    if (stockLevel.units + adjustment < 0) {
-      return ApiError.badRequest(
-        'stockLevel after adjustment must be at least 0',
-      );
-    }
-
-    return null;
-  } catch (error) {
-    return ApiError.internal();
+  const stockLevel = await StockLevel.findOne({
+    where: { itemId, warehouseId },
+  });
+  if (!stockLevel) {
+    return ApiError.notFound('stockLevel not found');
   }
+
+  if (stockLevel.units + adjustment < 0) {
+    return ApiError.badRequest(
+      'stockLevel after adjustment must be at least 0',
+    );
+  }
+
+  return null;
 };
 
 module.exports.setStockLevel = async (itemId, warehouseId, units) => {
@@ -99,15 +88,12 @@ module.exports.setStockLevel = async (itemId, warehouseId, units) => {
     return unitsError;
   }
 
-  try {
-    const stockLevel = await StockLevel.findOne({
-      where: { itemId, warehouseId },
-    });
-    if (!stockLevel) {
-      return ApiError.notFound('stockLevel not found');
-    }
-    return null;
-  } catch (error) {
-    return ApiError.internal();
+  const stockLevel = await StockLevel.findOne({
+    where: { itemId, warehouseId },
+  });
+  if (!stockLevel) {
+    return ApiError.notFound('stockLevel not found');
   }
+
+  return null;
 };
