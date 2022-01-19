@@ -7,6 +7,7 @@ const CREATE_STOCK_LEVEL = 'CREATE_STOCK_LEVEL';
 const GET_STOCK_LEVELS = 'GET_STOCK_LEVELS';
 const DELETE_STOCK_LEVEL = 'DELETE_STOCK_LEVEL';
 const ADJUST_STOCK_LEVEL = 'ADJUST_STOCK_LEVEL';
+const SET_STOCK_LEVEL = 'SET_STOCK_LEVEL';
 
 const getError = async (req, method) => {
   switch (method) {
