@@ -1,5 +1,5 @@
 // Methodology adapted from https://github.com/productioncoder/express-error-handling
-const ApiError = require('../ApiError');
+const ApiError = require('./ApiError');
 
 const apiErrorHandler = (err, req, res) => {
   if (err instanceof ApiError) {
