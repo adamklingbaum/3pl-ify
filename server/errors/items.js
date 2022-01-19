@@ -42,6 +42,10 @@ module.exports.createItem = (name, minStock, vendorName) => {
   return fieldValidationError;
 };
 
+module.exports.getAllItems = () => null;
+
+module.exports.getItemById = () => null;
+
 module.exports.updateItemById = async (itemId, name, minStock, vendorName) => {
   const fieldValidationError = validateItemFields(name, minStock, vendorName);
   if (fieldValidationError) {
@@ -58,10 +62,6 @@ module.exports.updateItemById = async (itemId, name, minStock, vendorName) => {
     return ApiError.internal();
   }
 };
-
-module.exports.getAllItems = () => null;
-
-module.exports.getItemById = () => null;
 
 module.exports.deleteItemById = async (itemId) => {
   try {
