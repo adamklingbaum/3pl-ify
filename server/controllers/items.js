@@ -45,7 +45,7 @@ module.exports.createItem = async (req, res, next) => {
     const newItem = await Item.create({ name, minStock, vendorName });
     res.status(201).json({ newItem });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -59,7 +59,7 @@ module.exports.getAllItems = async (req, res, next) => {
     const items = await Item.findAll({});
     res.status(200).json({ items });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -78,7 +78,7 @@ module.exports.getItemById = async (req, res, next) => {
     }
     res.status(200).json({ item });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -97,7 +97,7 @@ module.exports.updateItemById = async (req, res, next) => {
     );
     res.sendStatus(204);
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -112,6 +112,6 @@ module.exports.deleteItemById = async (req, res, next) => {
     await Item.destroy({ where: { id: itemId } });
     res.sendStatus(204);
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };

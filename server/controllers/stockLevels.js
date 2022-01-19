@@ -53,7 +53,7 @@ module.exports.createStockLevel = async (req, res, next) => {
     const stockLevel = await StockLevel.create({ itemId, warehouseId, units });
     res.status(201).json({ stockLevel });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -72,7 +72,7 @@ module.exports.getStockLevels = async (req, res, next) => {
     });
     res.status(200).json({ stockLevels });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -93,7 +93,7 @@ module.exports.deleteStockLevel = async (req, res, next) => {
     });
     res.sendStatus(204);
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -112,7 +112,7 @@ module.exports.adjustStockLevel = async (req, res, next) => {
     );
     res.status(201).json({ stockLevel });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
 
@@ -131,6 +131,6 @@ module.exports.setStockLevel = async (req, res, next) => {
     );
     res.status(201).json({ stockLevel });
   } catch (error) {
-    next(ApiError.internal());
+    next(error);
   }
 };
