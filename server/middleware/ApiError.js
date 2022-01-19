@@ -14,8 +14,8 @@ class ApiError {
     return ApiError(404, msg);
   }
 
-  static internatl(msg) {
-    return new ApiError(500, msg);
+  static internal() {
+    return new ApiError(500, 'internal server error');
   }
 }
 
