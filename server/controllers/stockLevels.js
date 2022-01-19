@@ -1,4 +1,3 @@
-const { literal } = require('sequelize');
 const { StockLevel, Warehouse } = require('../models');
 const { stockLevelErrors } = require('../errors');
 
@@ -33,7 +32,7 @@ const getError = (req, method) => {
       return stockLevelErrors.setStockLevel(
         req.body.itemId,
         req.body.warehouseId,
-        req.body.adjustment,
+        req.body.units,
       );
     default:
       return null;
@@ -83,10 +82,10 @@ module.exports.deleteStockLevel = async (req, res, next) => {
       return;
     }
 
-    const { itemid, warehouseId } = req.query;
+    const { itemId, warehouseId } = req.query;
     await StockLevel.destroy({
       where: {
-        itemid,
+        itemId,
         warehouseId,
       },
     });
@@ -105,10 +104,14 @@ module.exports.adjustStockLevel = async (req, res, next) => {
     }
 
     const { itemId, warehouseId, adjustment } = req.body;
-    const stockLevel = await StockLevel.update(
-      { units: literal(`units + ${adjustment}`) },
-      { where: { itemId, warehouseId } },
-    );
+    const stockLevel = await StockLevel.findOne({
+      where: { itemId, warehouseId },
+    });
+    stockLevel.set({
+      units: stockLevel.units + adjustment,
+    });
+    await stockLevel.save();
+
     res.status(201).json({ stockLevel });
   } catch (error) {
     next(error);
@@ -124,10 +127,12 @@ module.exports.setStockLevel = async (req, res, next) => {
     }
 
     const { itemId, warehouseId, units } = req.body;
-    const stockLevel = await StockLevel.update(
-      { units },
-      { where: { itemId, warehouseId } },
-    );
+    const stockLevel = await StockLevel.findOne({
+      where: { itemId, warehouseId },
+    });
+    stockLevel.set({
+      units,
+    });
     res.status(201).json({ stockLevel });
   } catch (error) {
     next(error);

@@ -90,7 +90,7 @@ module.exports.getWarehouseById = async (req, res, next) => {
     if (!warehouse) {
       next(ApiError.notFound('warehouse not found'));
     }
-    res.staus(200).json({ warehouse });
+    res.status(200).json({ warehouse });
   } catch (error) {
     next(error);
   }

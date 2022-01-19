@@ -1,5 +1,5 @@
 const { Item, Warehouse, StockLevel } = require('../models');
-const ApiError = require('../middleware');
+const { ApiError } = require('../middleware');
 
 const validateUnits = (units) => {
   if (units === undefined) {
@@ -27,6 +27,16 @@ module.exports.createStockLevel = async (itemId, warehouseId, units) => {
   const warehouse = await Warehouse.findByPk(warehouseId);
   if (!warehouse) {
     return ApiError.notFound('warehouse not found');
+  }
+
+  const stockLevel = await StockLevel.findOne({
+    where: { itemId, warehouseId },
+  });
+
+  if (stockLevel) {
+    return ApiError.badRequest(
+      'stockLevel with itemId and warehouseId already exists',
+    );
   }
 
   return null;

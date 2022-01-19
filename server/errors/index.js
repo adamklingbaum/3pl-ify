@@ -1,5 +1,5 @@
 const itemErrors = require('./items');
 const warehouseErrors = require('./warehouses');
-const stockLevels = require('./stockLevels');
+const stockLevelErrors = require('./stockLevels');
 
-module.exports = { itemErrors, warehouseErrors, stockLevels };
+module.exports = { itemErrors, warehouseErrors, stockLevelErrors };

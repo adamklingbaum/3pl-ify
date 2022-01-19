@@ -11,7 +11,7 @@ class ApiError {
   }
 
   static notFound(msg) {
-    return ApiError(404, msg);
+    return new ApiError(404, msg);
   }
 
   static internal() {

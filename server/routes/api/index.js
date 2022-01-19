@@ -7,7 +7,7 @@ const { apiErrorHandler } = require('../../middleware');
 const router = express.Router();
 
 router.use('/items', itemsRouter);
-router.use('/warehouse', warehousesRouter);
+router.use('/warehouses', warehousesRouter);
 router.use('/stockLevels', stockLevelsRouter);
 router.use(apiErrorHandler);
 

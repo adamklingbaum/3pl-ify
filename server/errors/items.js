@@ -1,5 +1,5 @@
 const { Item } = require('../models');
-const ApiError = require('../middleware');
+const { ApiError } = require('../middleware');
 const validateStringField = require('./validateStringField');
 
 const validateMinStock = (minStock) => {
