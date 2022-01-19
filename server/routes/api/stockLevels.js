@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const { stockLevels } = require('../../controllers');
+
+const router = express.Router();
 
 router.post('/', stockLevels.createStockLevel);
 router.get('/', stockLevels.getStockLevels);

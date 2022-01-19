@@ -1,7 +1,6 @@
 const { literal } = require('sequelize');
 const { StockLevel, Warehouse } = require('../models');
 const { stockLevelErrors } = require('../errors');
-const { ApiError } = require('../middleware');
 
 const CREATE_STOCK_LEVEL = 'CREATE_STOCK_LEVEL';
 const GET_STOCK_LEVELS = 'GET_STOCK_LEVELS';

@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const { items } = require('../../controllers');
+
+const router = express.Router();
 
 router.post('/', items.createItem);
 router.get('/', items.getAllItems);

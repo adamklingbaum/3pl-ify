@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const { warehouses } = require('../../controllers');
+
+const router = express.Router();
 
 router.post('/', warehouses.createWarehouse);
 router.get('/', warehouses.getAllWarehouses);
