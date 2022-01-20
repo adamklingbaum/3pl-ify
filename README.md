@@ -18,7 +18,7 @@ Inventory tracking web application written in JavaScript.
           <ul>
             <li><a href="#items">Items</a></li>
             <li><a href="#warehouses">Warehouses</a></li>
-            <li><a href="#items-warehouses">Items-Warehouses</a></li>
+            <li><a href="#stock-levels">Stock Levels</a></li>
           </ul>
         </li>
         <li>
