@@ -70,7 +70,7 @@ async function seed() {
 
   await Warehouse.create({
     name: 'Small Warehouse',
-    addressLine1: 'Merchant Motorway',
+    addressLine1: '456 Merchant Motorway',
     city: 'Ottawa',
     province: 'ON',
     postalCode: 'K2D 6E5',
