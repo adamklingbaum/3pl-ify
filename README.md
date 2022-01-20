@@ -64,7 +64,7 @@ This project also includes a basic client application to demo the functionality 
 
 #### Items
 
-1. Create a inventory item
+1. Create an inventory item
 2. View a list of all inventory items
 3. View a specific inventory item
 4. Edit an inventory item
@@ -94,7 +94,7 @@ This application is written entirely in JavaScript.
 
 - [Express](http://expressjs.com/) as the framework for the server application
 - [PostgreSQL](https://www.postgresql.org/) as the relational database management system
-- [Sequelize](https://sequelize.org/) as the ORM tool for modelling and interaction with the PostgreSQL database
+- [Sequelize](https://sequelize.org/) as the ORM tool for modelling and interacting with the PostgreSQL database
 
 #### Client
 
@@ -314,14 +314,14 @@ Creates a new warehouse
 
 ##### Body Parameters
 
-| Parameter       | Type   | Required | Default | Description                                                   |
-| :-------------- | :----- | :------- | :------ | :------------------------------------------------------------ |
-| `name`          | string | yes      | none    | name of the warehouse                                         |
-| `adddressLine1` | string | yes      | none    | street address                                                |
-| `adddressLine2` | string | no       | none    | unit #, suite #, etc.                                         |
-| `city`          | string | yes      | none    | city of the warehouse                                         |
-| `province`      | string | yes      | none    | province of the warehouse (official 2-letter abbreviation     |
-| `postalCode`    | string | yes      | none    | postal code of the warehouse, including space (e.g., A1B 2C3) |
+| Parameter       | Type   | Required | Default | Description                                                           |
+| :-------------- | :----- | :------- | :------ | :-------------------------------------------------------------------- |
+| `name`          | string | yes      | none    | name of the warehouse                                                 |
+| `adddressLine1` | string | yes      | none    | street address                                                        |
+| `adddressLine2` | string | no       | none    | unit #, suite #, etc.                                                 |
+| `city`          | string | yes      | none    | city of the warehouse                                                 |
+| `province`      | string | yes      | none    | province of the warehouse (official 2-letter abbreviation)            |
+| `postalCode`    | string | yes      | none    | postal code of the warehouse, including space between (e.g., A1B 2C3) |
 
 #### Sample Response
 
@@ -433,14 +433,14 @@ Updates an entire warehouse record
 
 ##### Body Parameters
 
-| Parameter       | Type   | Required | Default | Description                                                   |
-| :-------------- | :----- | :------- | :------ | :------------------------------------------------------------ |
-| `name`          | string | yes      | none    | name of the warehouse                                         |
-| `adddressLine1` | string | yes      | none    | street address                                                |
-| `adddressLine2` | string | no       | none    | unit #, suite #, etc.                                         |
-| `city`          | string | yes      | none    | city of the warehouse                                         |
-| `province`      | string | yes      | none    | province of the warehouse (official 2-letter abbreviation     |
-| `postalCode`    | string | yes      | none    | postal code of the warehouse, including space (e.g., A1B 2C3) |
+| Parameter       | Type   | Required | Default | Description                                                           |
+| :-------------- | :----- | :------- | :------ | :-------------------------------------------------------------------- |
+| `name`          | string | yes      | none    | name of the warehouse                                                 |
+| `adddressLine1` | string | yes      | none    | street address                                                        |
+| `adddressLine2` | string | no       | none    | unit #, suite #, etc.                                                 |
+| `city`          | string | yes      | none    | city of the warehouse                                                 |
+| `province`      | string | yes      | none    | province of the warehouse (official 2-letter abbreviation)            |
+| `postalCode`    | string | yes      | none    | postal code of the warehouse, including space between (e.g., A1B 2C3) |
 
 ##### Sample Response
 
