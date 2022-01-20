@@ -125,7 +125,7 @@ CREATE DATABASE inventory;
 \q
 ```
 
-Create a `.env` file in the `server` directory with your PostgreSQL database local [connection string](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING) (may differ by local configuration):
+Create a `.env` file in the `server` directory with your PostgreSQL database local [connection URI](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING) (may differ by local configuration):
 
 ```bash
 # Example connection string; may differ by local configuration
