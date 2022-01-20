@@ -2,6 +2,8 @@
 
 Inventory tracking web application written in JavaScript.
 
+![ui-screenshot](assets/ui.png)
+
 <details>
   <summary><strong>Table of Contents</strong></summary>
   <ol>
