@@ -16,7 +16,6 @@ function Items() {
   const [loaded, setLoaded] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showStockLevelModal, setShowStockLevelModal] = useState(false);
 
   const getItems = () => {
     axios.get('/api/items').then(({ data }) => {
@@ -37,11 +36,6 @@ function Items() {
   const handleDeleteClick = (item) => {
     setCurrentItemData(item);
     setShowDeleteModal(true);
-  };
-
-  const handleStockLevelClick = (item) => {
-    setCurrentItemData(item);
-    setShowStockLevelModal(true);
   };
 
   return (
@@ -67,7 +61,6 @@ function Items() {
                   key={item.id}
                   handleEditClick={handleEditClick}
                   handleDeleteClick={handleDeleteClick}
-                  handleStockLevelClick={handleStockLevelClick}
                 />
               ))}
             </tbody>
