@@ -69,11 +69,11 @@ async function seed() {
   });
 
   await Warehouse.create({
-    name: 'Empty Warehouse',
-    addressLine1: '370 SMB Square',
+    name: 'Small Warehouse',
+    addressLine1: 'Merchant Motorway',
     city: 'Ottawa',
     province: 'ON',
-    postalCode: 'K1P 6D6',
+    postalCode: 'K2D 6E5',
   });
 
   await StockLevel.create({
@@ -93,13 +93,13 @@ async function seed() {
   await StockLevel.create({
     itemId: item2.id,
     warehouseId: warehouse2.id,
-    units: 300,
+    units: 150,
   });
 
   await StockLevel.create({
     itemId: item2.id,
     warehouseId: warehouse3.id,
-    units: 300,
+    units: 200,
   });
 
   await StockLevel.create({
