@@ -4,7 +4,6 @@ const validateStringField = require('./validateStringField');
 
 const validateProvince = (province) => {
   const provinceRegEx = /^(?:AB|BC|MB|N[BLTSU]|ON|PE|QC|SK|YT)*$/;
-  console.log(province);
 
   if (province === undefined) {
     return ApiError.badRequest('province is required');
