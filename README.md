@@ -52,6 +52,8 @@ Inventory tracking web application written in JavaScript.
 
 3PL-ify is an inventory tracking web application built for a logistics company. The server application supports CRUD operations on inventory and warehouses, as well as the allocation of inventory to warehouses.
 
+**My focus in developing this application was a _high degree of modularity_, to support the addition of features in the future** (e.g., extending the data model and API to include Vendors, Shipments and Metadata).
+
 This project also includes a basic client application to demo the functionality of the server application.
 
 ### Server Architecture
@@ -99,6 +101,7 @@ This application is written entirely in JavaScript.
 - [React](https://reactjs.org/) as the library for the intreactive user interface
 - [Create React App](https://create-react-app.dev/) to streamline the configuration, transpilation and building of the React application
 - [React Bootstrap](https://react-bootstrap.github.io/) for pre-built, Bootstrap-styled React components
+- [Axios](https://axios-http.com/) as an HTTP client
 
 ---
 
