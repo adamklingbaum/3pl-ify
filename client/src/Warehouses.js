@@ -50,7 +50,7 @@ function Warehouses() {
           <Table>
             <thead>
               <tr>
-                <th>ID</th>
+                <th>Warehouse ID</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>City</th>

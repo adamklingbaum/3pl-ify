@@ -47,7 +47,7 @@ function Items() {
           <Table>
             <thead>
               <tr>
-                <th>ID</th>
+                <th>Item ID</th>
                 <th>Item Name</th>
                 <th>Vendor Name</th>
                 <th>Min Stock</th>

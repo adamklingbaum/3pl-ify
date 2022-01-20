@@ -58,7 +58,7 @@ function StockLevels() {
           <Table>
             <thead>
               <tr>
-                <th>ID</th>
+                <th>Stock Level ID</th>
                 <th>Item ID</th>
                 <th>Warehouse ID</th>
                 <th>Warehouse Name</th>
