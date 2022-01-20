@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Container, Table, Spinner } from 'react-bootstrap';
 import StockLevel from './StockLevel';
-import NewItem from './NewItem';
+import NewStockLevel from './NewStockLevel';
 import EditStockLevel from './EditStockLevel';
-import DeleteItem from './DeleteItem';
+import DeleteStockLevel from './DeleteStockLevel';
 import axios from 'axios';
 
 function StockLevels() {
@@ -20,7 +20,6 @@ function StockLevels() {
 
   const getStockLevels = () => {
     axios.get('/api/items').then(({ data }) => {
-      setLoaded(true);
       let newStockLevels = [];
       Promise.all(
         data.items.map((item) =>
@@ -31,6 +30,7 @@ function StockLevels() {
           newStockLevels = [...newStockLevels, ...data.stockLevels];
         });
         setStockLevels(newStockLevels);
+        setLoaded(true);
       });
     });
   };
@@ -54,7 +54,7 @@ function StockLevels() {
       {loaded ? (
         <>
           <h1>Stock Levels</h1>
-          <NewItem getStockLevels={getStockLevels} />
+          <NewStockLevel getStockLevels={getStockLevels} />
           <Table>
             <thead>
               <tr>
@@ -83,12 +83,12 @@ function StockLevels() {
             setCurrentStockLevelData={getStockLevels}
             getStockLevels={getStockLevels}
           />
-          {/*  <DeleteItem
+          <DeleteStockLevel
             showDeleteModal={showDeleteModal}
             setShowDeleteModal={setShowDeleteModal}
             currentStockLevelData={currentStockLevelData}
             getStockLevels={getStockLevels}
-          /> */}
+          />
         </>
       ) : (
         <Spinner animation="border" role="status">

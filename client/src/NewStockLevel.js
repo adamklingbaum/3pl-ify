@@ -5,10 +5,10 @@ import { Form } from 'react-bootstrap';
 import useFormMessage from './useFormMessage';
 import { Button } from 'react-bootstrap';
 
-const initState = { name: '', minStock: '', vendorName: '' };
+const initState = { itemId: '', warehouseId: '', units: '' };
 
-function NewItem(props) {
-  const { getItems } = props;
+function NewStockLevel(props) {
+  const { getStockLevels } = props;
   const [formData, setFormData] = useState(initState);
   const [show, setShow] = useState(false);
   const [formMessage, formMessageStyle, setFormMessageAndStyle] =
@@ -18,14 +18,17 @@ function NewItem(props) {
   const handleClose = () => {
     setFormMessageAndStyle('', 'success');
     setShow(false);
-    getItems();
+    getStockLevels();
   };
 
   const handleSubmit = () => {
     axios
-      .post('/api/items', formData)
+      .post('/api/stockLevels', formData)
       .then(() => {
-        setFormMessageAndStyle(`Created ${formData.name}`, 'success');
+        setFormMessageAndStyle(
+          `Created Item ${formData.itemId} / Warehouse ${formData.warehouseId}`,
+          'success',
+        );
         setFormData(initState);
       })
       .catch((error) => {
@@ -43,7 +46,7 @@ function NewItem(props) {
   return (
     <>
       <Button variant="success" onClick={handleShow}>
-        New Item
+        New Stock Level
       </Button>
 
       <FormModalContainer
@@ -57,36 +60,37 @@ function NewItem(props) {
         formMessageStyle={formMessageStyle}
       >
         <Form>
-          <Form.Group className="mb-3" controlId="formItemName">
-            <Form.Label>Item Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter product name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formItemMinStock">
-            <Form.Label>Minimum Stock Level</Form.Label>
+          <Form.Group className="mb-3" controlId="formItemId">
+            <Form.Label>Item ID</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter minimum stock"
-              name="minStock"
+              placeholder="Enter item ID"
+              name="itemId"
               min="0"
-              value={formData.minStock}
+              value={formData.itemId}
               onChange={handleChange}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formItemVendorName">
-            <Form.Label>Vendor Name</Form.Label>
+          <Form.Group className="mb-3" controlId="formWarehouseId">
+            <Form.Label>Warehouse ID</Form.Label>
             <Form.Control
-              type="text"
-              placeholder="Enter vendor name"
-              name="vendorName"
-              value={formData.vendorName}
+              type="number"
+              placeholder="Enter warehouse ID"
+              name="warehouseId"
+              min="0"
+              value={formData.warehouseId}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formUnits">
+            <Form.Label>Units</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter number of units"
+              name="units"
+              value={formData.units}
               onChange={handleChange}
             />
           </Form.Group>
@@ -96,4 +100,4 @@ function NewItem(props) {
   );
 }
 
-export default NewItem;
+export default NewStockLevel;

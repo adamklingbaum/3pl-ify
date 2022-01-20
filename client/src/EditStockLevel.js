@@ -23,7 +23,11 @@ function EditStockLevel(props) {
 
   const handleSubmit = () => {
     axios
-      .post(`/api/stockLevels/set`, formData)
+      .post(`/api/stockLevels/set`, {
+        itemId: formData.itemId,
+        warehouseId: formData.warehouseId,
+        units: formData.units,
+      })
       .then(() => {
         setFormMessageAndStyle(
           `Updated Item ${formData.itemId} / Warehouse ${formData.warehouseId}`,

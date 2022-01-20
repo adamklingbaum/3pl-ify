@@ -20,17 +20,15 @@ function EditItem(props) {
   }, [currentWarehouseData]);
 
   const handleSubmit = () => {
-    // Validation here
     axios
       .put(`/api/warehouses/${currentWarehouseData.id}`, formData)
       .then(() => {
         setFormMessageAndStyle(`Updated ${formData.name}`, 'success');
-        // setShow(false);
       })
       .catch((error) => {
         setFormMessageAndStyle(
           'There was an error in your submission',
-          'danger'
+          'danger',
         );
       });
   };

@@ -13,7 +13,6 @@ function DeleteItem(props) {
       .delete(`/api/items/${currentItemData.id}`)
       .then(() => {
         setFormMessageAndStyle(`Deleted ${currentItemData.name}`, 'success');
-        // setShow(false);
       })
       .catch((error) => {
         setFormMessageAndStyle(

@@ -10,24 +10,20 @@ function EditItem(props) {
   const [formMessage, formMessageStyle, setFormMessageAndStyle] =
     useFormMessage();
 
-  // console.log({ currentItemData });
-  // console.log(formData);
   useEffect(() => {
     setFormData(currentItemData);
   }, [currentItemData]);
 
   const handleSubmit = () => {
-    // Validation here
     axios
       .put(`/api/items/${currentItemData.id}`, formData)
       .then(() => {
         setFormMessageAndStyle(`Updated ${formData.name}`, 'success');
-        // setShow(false);
       })
       .catch((error) => {
         setFormMessageAndStyle(
           'There was an error in your submission',
-          'danger'
+          'danger',
         );
       });
   };

@@ -13,8 +13,7 @@ function getStockCommentAndStyle(inStock, minStock) {
 }
 
 function Item(props) {
-  const { item, handleEditClick, handleDeleteClick, handleStockLevelClick } =
-    props;
+  const { item, handleEditClick, handleDeleteClick } = props;
   const [stockLevels, setStockLevels] = useState([]);
   const totalStockUnits = stockLevels.reduce((total, stockLevel) => {
     return total + stockLevel.units;

@@ -2,23 +2,25 @@ import FormModalContainer from './FormModalContainer';
 import axios from 'axios';
 import useFormMessage from './useFormMessage';
 
-function DeleteWarehouse(props) {
+function DeleteStockLevel(props) {
   const {
     showDeleteModal,
     setShowDeleteModal,
-    currentWarehouseData,
-    getWarehouses,
+    currentStockLevelData,
+    getStockLevels,
   } = props;
   const [formMessage, formMessageStyle, setFormMessageAndStyle] =
     useFormMessage();
 
   const handleSubmit = () => {
     axios
-      .delete(`/api/warehouses/${currentWarehouseData.id}`)
+      .delete(
+        `/api/stockLevels?itemId=${currentStockLevelData.itemId}&warehouseId=${currentStockLevelData.warehouseId}`,
+      )
       .then(() => {
         setFormMessageAndStyle(
-          `Deleted ${currentWarehouseData.name}`,
-          'danger',
+          `Deleted Item ${currentStockLevelData.itemId} / Warehouse ${currentStockLevelData.warehouseId} (${currentStockLevelData.warehouse.name})`,
+          'success',
         );
       })
       .catch((error) => {
@@ -32,7 +34,7 @@ function DeleteWarehouse(props) {
   const handleClose = () => {
     setShowDeleteModal(false);
     setFormMessageAndStyle('', 'success');
-    getWarehouses();
+    getStockLevels();
   };
 
   return (
@@ -46,10 +48,11 @@ function DeleteWarehouse(props) {
       formMessage={formMessage}
       formMessageStyle={formMessageStyle}
     >
-      Really delete Warehouse {currentWarehouseData.id}:{' '}
-      {currentWarehouseData.name}?
+      Really delete Item {currentStockLevelData.itemId} / Warehouse{' '}
+      {currentStockLevelData.warehouseId} (
+      {currentStockLevelData.warehouse?.name})?
     </FormModalContainer>
   );
 }
 
-export default DeleteWarehouse;
+export default DeleteStockLevel;

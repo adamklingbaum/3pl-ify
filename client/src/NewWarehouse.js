@@ -29,18 +29,16 @@ function NewWarehouse(props) {
   };
 
   const handleSubmit = () => {
-    // Validation here
     axios
       .post('/api/warehouses', formData)
       .then(() => {
         setFormMessageAndStyle(`Created ${formData.name}`, 'success');
         setFormData(initState);
-        // setShow(false);
       })
       .catch((error) => {
         setFormMessageAndStyle(
           'There was an error in your submission',
-          'danger'
+          'danger',
         );
       });
   };

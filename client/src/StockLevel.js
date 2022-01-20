@@ -1,49 +1,7 @@
 import { Button } from 'react-bootstrap';
-import { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-
-function getStockCommentAndStyle(inStock, minStock) {
-  if (inStock / minStock >= 1.2) {
-    return ['OK', 'success'];
-  } else if (inStock / minStock >= 1.1) {
-    return ['CLOSE', 'warning'];
-  } else {
-    return ['LOW', 'danger'];
-  }
-}
 
 function StockLevel(props) {
-  const {
-    stockLevel,
-    handleEditClick,
-    handleDeleteClick,
-    handleStockLevelClick,
-  } = props;
-  console.log(stockLevel);
-  // const [stockLevels, setStockLevels] = useState([]);
-  // const totalStockUnits = stockLevels.reduce((total, stockLevel) => {
-  //   return total + stockLevel.units;
-  // }, 0);
-
-  // const [stockComment, stockCommentStyle] = getStockCommentAndStyle(
-  //   totalStockUnits,
-  //   item.minStock,
-  // );
-
-  // const [stockLoaded, setStockLoaded] = useState(false);
-
-  /*   const getStockLevels = useCallback(() => {
-    axios
-      .get('/api/stockLevels', { params: { itemId: item.id } })
-      .then(({ data }) => {
-        setStockLevels(data.stockLevels);
-        setStockLoaded(true);
-      });
-  }, [item.id]);
-
-  useEffect(() => {
-    getStockLevels();
-  }, [getStockLevels]); */
+  const { stockLevel, handleEditClick, handleDeleteClick } = props;
 
   return (
     <tr>
