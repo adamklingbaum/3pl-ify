@@ -121,7 +121,7 @@ Create the PostgreSQL database (commands may differ by operating system):
 
 ```bash
 psql
-CREATE DATABASE inventory;
+CREATE DATABASE 3plify_inventory;
 \q
 ```
 
@@ -129,7 +129,7 @@ Create a `.env` file in the `server` directory with your PostgreSQL database loc
 
 ```bash
 # Example connection string; may differ by local configuration
-echo "PG_URI=postgres://localhost:5432/inventory" > server/.env
+echo "PG_URI=postgres://localhost:5432/3plify_inventory" > server/.env
 ```
 
 Change into the `server` directory, install dependencies and seed the database with sample data:
