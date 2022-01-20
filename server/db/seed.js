@@ -82,8 +82,6 @@ async function seed() {
     units: 100,
   });
 
-  console.log(item1.id);
-
   await StockLevel.create({
     itemId: item1.id,
     warehouseId: warehouse2.id,
