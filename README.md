@@ -127,6 +127,8 @@ CREATE DATABASE _3plify_inventory;
 
 Create a `.env` file in the `server` directory with your PostgreSQL database local [connection URI](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING) (may differ by local configuration):
 
+_Make sure you are in the root of the project directory._
+
 ```bash
 # Example connection string; may differ by local configuration
 echo "PG_URI=postgres://localhost:5432/_3plify_inventory" > server/.env
@@ -153,10 +155,10 @@ In one terminal, start the development server:
 
 ```bash
 cd server
-npm run dev
+npm start
 ```
 
-In a separate terminal, start the client application:
+In a separate terminal, start the client application development server:
 
 ```bash
 cd client
