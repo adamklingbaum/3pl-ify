@@ -169,7 +169,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## REST API Documentation
 
-Base URL: `/api`
+Base URL (dev server): `http://localhost:3001/api`
 
 ### Items API
 
