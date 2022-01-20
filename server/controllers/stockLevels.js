@@ -111,7 +111,6 @@ module.exports.adjustStockLevel = async (req, res, next) => {
       units: stockLevel.units + adjustment,
     });
     await stockLevel.save();
-
     res.status(201).json({ stockLevel });
   } catch (error) {
     next(error);
@@ -133,6 +132,7 @@ module.exports.setStockLevel = async (req, res, next) => {
     stockLevel.set({
       units,
     });
+    await stockLevel.save();
     res.status(201).json({ stockLevel });
   } catch (error) {
     next(error);
