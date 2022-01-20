@@ -7,10 +7,6 @@ const validateMinStock = (minStock) => {
     return ApiError.badRequest('minStock is required');
   }
 
-  if (typeof minStock !== 'number') {
-    return ApiError.badRequest('minStock must be an integer');
-  }
-
   if (minStock < 0) {
     return ApiError.badRequest('minStock must be at least 0');
   }
