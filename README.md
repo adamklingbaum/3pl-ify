@@ -121,7 +121,7 @@ Create the PostgreSQL database (commands may differ by operating system):
 
 ```bash
 psql
-CREATE DATABASE `_3plify_inventory`;
+CREATE DATABASE _3plify_inventory;
 \q
 ```
 
