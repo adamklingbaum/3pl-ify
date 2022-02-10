@@ -9,7 +9,7 @@ const validateStringField = (fieldName, value) => {
     return ApiError.badRequest(`${fieldName} must be a string`);
   }
 
-  if (fieldName.length === 0) {
+  if (value.length === 0) {
     return ApiError.badRequest(`${fieldName} must not be empty`);
   }
 
